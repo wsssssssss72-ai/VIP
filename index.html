@@ -1,240 +1,593 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIPSTUDY | Premium Learning Experience</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/2232/2232688.png">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>MADXRAJ — VIP Study</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r150/three.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+    
 </head>
 <body>
-    <!-- Background Elements -->
-    <div class="gradient-bg"></div>
-    <div class="floating-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
+<!-- ===== COSMIC BACKGROUND ===== -->
+<div class="cosmic-universe">
+  <div class="star-field"></div>
+  <div class="nebula-cloud"></div>
+  <div class="nebula-cloud"></div>
+</div>
+
+<!-- ===== ANIMATED PARTICLES ===== -->
+<canvas id="floatingParticles"></canvas>
+
+<!-- ===== PRELOADER ===== -->
+<div id="quantumPreloader">
+  <div class="preloader-content">
+    <div class="quantum-loader">
+      <div class="quantum-sphere"></div>
+      <div class="quantum-sphere"></div>
+      <div class="quantum-sphere"></div>
     </div>
+    <h1 class="preloader-text">MADXRAJ</h1>
+    <p class="preloader-subtext">Quantum Learning Experience</p>
+  </div>
+</div>
 
-    <!-- Glass Loader -->
-    <div class="glass-loader" id="glassLoader">
-        <div class="loader-circle"></div>
-        <p>VIPSTUDY Loading...</p>
+<!-- ===== VERIFICATION PORTAL ===== -->
+<div class="verification-portal" id="verificationPortal">
+  <div class="portal-container glass-heavy">
+    <div class="portal-icon">
+      <i class="fas fa-shield-check"></i>
     </div>
+    <h2 class="portal-title">Quantum Access</h2>
+    <p class="portal-message">
+      Unlock premium defense exam preparation content with secure verification. Access valid for 24 hours across all devices.
+    </p>
+    <button class="portal-btn" id="quantumVerifyBtn">
+      <i class="fas fa-key"></i>
+      <span>Verify & Enter Portal</span>
+    </button>
+    <a href="https://t.me/ALLEN_MADxRAJ_BOT?start=804cd5f5-aa74-4a36-b647-2629df72582b" 
+       target="_blank" class="portal-help">
+      <i class="fas fa-question-circle"></i>
+      Need help with verification?
+    </a>
+  </div>
+</div>
 
-    <!-- Glass Header -->
-    <header class="glass-header">
-        <div class="container header-content">
-            <a href="#" class="glass-logo">
-                <i class="fas fa-gem"></i>
-                VIPSTUDY
-            </a>
+<!-- ===== LOADING OVERLAY ===== -->
+<div class="quantum-loading" id="quantumLoading">
+  <div class="loading-content">
+    <div class="loading-animation">
+      <div class="loading-ring"></div>
+      <div class="loading-ring"></div>
+      <div class="loading-ring"></div>
+    </div>
+    <div class="loading-percentage" id="loadingPercent">0%</div>
+    <h3 class="loading-text" id="loadingTitle">Loading Quantum Content</h3>
+    <p class="loading-subtext">Preparing your premium learning experience...</p>
+    <div class="loading-bar">
+      <div class="loading-progress" id="loadingProgress"></div>
+    </div>
+  </div>
+</div>
 
-            <nav class="glass-nav">
-                <a href="#home" class="nav-link-glass active">Home</a>
-                <a href="#apps" class="nav-link-glass">Apps</a>
-                <a href="#features" class="nav-link-glass">Features</a>
-                <a href="#download" class="nav-link-glass">Download</a>
-                <a href="#contact" class="nav-link-glass">Contact</a>
-            </nav>
+<!-- ===== MAIN CONTENT ===== -->
+<div id="mainContent" style="display: none;">
 
-            <a href="https://t.me/+roQAmujl1TRjMjE1" target="_blank" class="glass-btn btn-gradient">
-                <i class="fab fa-telegram-plane"></i>
-                Join Channel
-            </a>
+<!-- ===== NAVIGATION ===== -->
+<nav class="quantum-nav glass">
+  <div class="logo-symbol">
+    <div class="logo-icon">
+      <i class="fas fa-atom"></i>
+    </div>
+    <div class="logo-text">MADXRAJ</div>
+  </div>
+  <div class="nav-links">
+    <a href="#" class="nav-item">
+      <i class="fas fa-home"></i> Home
+    </a>
+    <a href="#batches" class="nav-item">
+      <i class="fas fa-graduation-cap"></i> Batches
+    </a>
+    <a href="#contact" class="nav-item">
+      <i class="fas fa-headset"></i> Support
+    </a>
+  </div>
+</nav>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="quantum-hero">
+  <div class="hero-container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-bolt"></i>
+        Quantum Learning Platform
+      </div>
+      <h1 class="hero-title">
+        Elevate Your Defense<br>
+        Exam Preparation
+      </h1>
+      <p class="hero-subtitle">
+        Experience premium CDS, NDA & AFCAT preparation with cutting-edge technology, 
+        interactive classes, and quantum-inspired learning methodology.
+      </p>
+      <div class="hero-cta">
+        <a href="#" class="hero-btn btn-primary">
+          <i class="fas fa-rocket"></i>
+          Launch Learning
+        </a>
+        <button class="hero-btn btn-secondary" id="exploreBatches">
+          <i class="fas fa-compass"></i>
+          Explore Courses
+        </button>
+      </div>
+    </div>
+    <div class="hero-visualizer">
+      <div class="visualizer-canvas" id="heroCanvas"></div>
+      <div class="visualizer-overlay"></div>
+      <div class="visualizer-text">
+        <div class="visualizer-title">VIP CDS</div>
+        <div class="visualizer-subtitle">Quantum Edition</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BATCHES SECTION ===== -->
+<section class="quantum-batches" id="batches">
+  <div class="section-header">
+    <div class="section-label">Premium Courses</div>
+    <h2 class="section-title">Quantum Learning Batches</h2>
+    <p class="section-description">
+      Select your specialized batch and experience next-generation exam preparation 
+      with interactive sessions, AI-powered insights, and quantum acceleration.
+    </p>
+  </div>
+  
+  <div class="batches-grid">
+    <!-- Featured Batch -->
+    <a class="batch-card" href="/alpha-ota-cds1.html" data-title="Alpha OTA">
+      <div class="card-glow"></div>
+      <div class="batch-featured">🔥 FEATURED</div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/ota_CARD_new.webp" 
+             alt="Alpha OTA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
         </div>
-    </header>
-
-    <!-- Glass Hero -->
-    <section class="glass-hero" id="home">
-        <div class="container hero-content">
-            <span class="hero-badge">PREMIUM LEARNING</span>
-            
-            <h1 class="hero-title">
-                UNLOCKED <span class="gradient-text">Premium</span><br>
-                Education Apps
-            </h1>
-            
-            <p class="hero-subtitle">
-                Experience the future of learning with our premium glassmorphism design.
-                Beautiful, functional, and designed for modern learners.
-            </p>
-            
-            <div class="hero-buttons">
-                <a href="#apps" class="glass-btn btn-gradient">
-                    <i class="fas fa-rocket"></i>
-                    Explore Apps
-                </a>
-                <a href="#features" class="glass-btn">
-                    <i class="fas fa-play-circle"></i>
-                    Watch Demo
-                </a>
-            </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Alpha OTA</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-calendar-star"></i>
+          CDS-1 2026 | Officer's Training Academy
         </div>
-    </section>
-
-    <!-- Apps Showcase -->
-    <section class="app-showcase" id="apps">
-        <div class="container">
-            <h2 class="section-title">Premium Applications</h2>
-            <p class="section-subtitle">
-                Discover our premium collection of educational applications.
-            </p>
-            
-            <div class="glass-grid">
-                <!-- App Cards will be generated by JavaScript -->
-            </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">98%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">150+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
         </div>
-    </section>
-
-    <!-- Features -->
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose VIPSTUDY</h2>
-            <p class="section-subtitle">
-                Beautiful design meets powerful functionality in our premium learning platform.
-            </p>
-            
-            <div class="glass-grid">
-                <div class="glass-card">
-                    <div class="card-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h3 class="card-title">Lightning Fast</h3>
-                    <p class="card-description">
-                        Optimized for speed with instant loading and seamless performance.
-                    </p>
-                    <a href="#" class="glass-btn card-btn">
-                        Learn More
-                    </a>
-                </div>
-                
-                <div class="glass-card">
-                    <div class="card-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="card-title">Secure & Safe</h3>
-                    <p class="card-description">
-                        Enterprise-grade security with encrypted downloads and protection.
-                    </p>
-                    <a href="#" class="glass-btn card-btn">
-                        Learn More
-                    </a>
-                </div>
-                
-                <div class="glass-card">
-                    <div class="card-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="card-title">Always Updated</h3>
-                    <p class="card-description">
-                        Regular updates with new features and improvements.
-                    </p>
-                    <a href="#" class="glass-btn card-btn">
-                        Learn More
-                    </a>
-                </div>
-            </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
         </div>
-    </section>
+      </div>
+    </a>
 
-    <!-- Download Section -->
-    <section id="download">
-        <div class="container">
-            <h2 class="section-title">Download & Get Started</h2>
-            <p class="section-subtitle">
-                Access premium educational content anytime, anywhere.
-            </p>
-            
-            <div class="download-container">
-                <div class="download-card">
-                    <i class="fas fa-mobile-alt download-icon"></i>
-                    <h3>Mobile Access</h3>
-                    <p>Available on all devices with responsive design</p>
-                    <a href="#apps" class="glass-btn btn-gradient">
-                        <i class="fas fa-download"></i>
-                        View Apps
-                    </a>
-                </div>
-                
-                <div class="download-card">
-                    <i class="fas fa-desktop download-icon"></i>
-                    <h3>Web Platform</h3>
-                    <p>Access directly from any modern browser</p>
-                    <a href="#contact" class="glass-btn">
-                        <i class="fas fa-external-link-alt"></i>
-                        Open Web App
-                    </a>
-                </div>
-            </div>
+    <!-- Batch 2 -->
+    <a class="batch-card" href="/alpha_math_batch_cds-1_2026.html" data-title="Alpha Math">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/cds_maths_CARD_new.webp" 
+             alt="Alpha Math" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
         </div>
-    </section>
-
-    <!-- Glass Footer -->
-    <footer class="glass-footer" id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand-glass">
-                    <div class="footer-logo-glass">VIPSTUDY</div>
-                    <p class="footer-description">
-                        Premium educational platform with beautiful glassmorphism design.
-                        Experience learning like never before.
-                    </p>
-                    <div class="social-glass">
-                        <a href="https://t.me/+roQAmujl1TRjMjE1" target="_blank" class="social-link-glass">
-                            <i class="fab fa-telegram-plane"></i>
-                        </a>
-                        <a href="https://whatsapp.com/channel/0029VbAvDSX0QeahEg4kkE3U" target="_blank" class="social-link-glass">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://t.me/MADXRAJ_VIPX" target="_blank" class="social-link-glass">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.youtube.com/@MADxsong" target="_blank" class="social-link-glass">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-section-glass">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links-glass">
-                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#apps"><i class="fas fa-chevron-right"></i> Apps</a></li>
-                        <li><a href="#features"><i class="fas fa-chevron-right"></i> Features</a></li>
-                        <li><a href="#download"><i class="fas fa-chevron-right"></i> Download</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section-glass">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links-glass">
-                        <li><a href="https://whatsapp.com/channel/0029VbAvDSX0QeahEg4kkE3U" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Channel</a></li>
-                        <li><a href="https://t.me/MADXRAJ_VIPX" target="_blank"><i class="fab fa-telegram"></i> Telegram</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section-glass">
-                    <h3>Support</h3>
-                    <ul class="footer-links-glass">
-                        <li><a href="mailto:support@vipstudy.com"><i class="fas fa-envelope"></i> support@vipstudy.com</a></li>
-                        <li><a href="https://t.me/+roQAmujl1TRjMjE1" target="_blank">
-                            <i class="fab fa-telegram"></i> Telegram Channel
-                        </a></li>
-                        <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright-glass">
-                &copy; 2025 VIPSTUDY. All rights reserved. | Premium Educational Platform
-            </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Alpha Math</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-calculator"></i>
+          CDS-1 2026 | Mathematics Specialization
         </div>
-    </footer>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">95%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">120+</div>
+            <div class="stat-label">Lectures</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
 
-    <script src="script.js"></script>
+    <!-- Batch 3 -->
+    <a class="batch-card" href="/bravo_gat_batch nda 2026index.html" data-title="Bravo GAT">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/nda_CARD_new.webp" 
+             alt="Bravo GAT" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Bravo GAT</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-brain"></i>
+          NDA-1 2026 | General Ability Test
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">96%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">110+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+   <a class="batch-card" href="/xray batch.html" data-title="X-Ray NDA">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="X-Ray NDA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">X-Ray NDA</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-bullseye"></i>
+          NDA-1 2026 | Target-Focused
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">93%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">95+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+  </div> <a class="batch-card" href="index (4).html" data-title="X-Ray NDA">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="X-Ray NDA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">ZULU OTA CDS 2 </h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-bullseye"></i>
+          NDA-1 2026 | Target-Focused
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">93%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">95+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+  </div>
+    <!-- Batch 4 -->
+    <a class="batch-card" href="/bravo_math_batch_nda-1.html" data-title="Bravo Math NDA">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/nda_CARD_new.webp" 
+             alt="Bravo Math NDA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Bravo Math NDA</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-square-root-alt"></i>
+          NDA-1 2026 | Mathematics Focus
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">94%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100+</div>
+            <div class="stat-label">Lectures</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Batch 5 -->
+    <a class="batch-card" href="/charlie_afcat_batch_afcat-1.html" data-title="Charlie AFCAT">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="Charlie AFCAT" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Charlie AFCAT</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-jet-fighter"></i>
+          AFCAT-1 2026 | Flying Branch
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">92%</div>
+            <div class="stat-label">Selection</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">90+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Batch 6 -->
+    <a class="batch-card" href="/capf_paper_2_delta_batch_capf_2026index.html" data-title="CAPF Delta">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/1000162824.webp" 
+             alt="CAPF Delta" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-soon">
+          <i class="fas fa-clock"></i> COMING SOON
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">capf paper 2 delta batch</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-shield-alt"></i>
+          CAPF 2026 | Paper 1+2 Complete
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">—</div>
+            <div class="stat-label">Launching Soon</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-bell"></i>
+            Notify Me
+          </span>
+          <div class="batch-price">SOON</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- Batch 7 -->
+    <a class="batch-card" href="/MATH-0.html" data-title="Math 2025">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="Math 2025" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">Math 2025</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-infinity"></i>
+          CDS/NDA 2025 | Advanced Mathematics
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">91%</div>
+            <div class="stat-label">Success</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">85+</div>
+            <div class="stat-label">Lectures</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+ <a class="batch-card" href="/capf_paper_1_paper_2_delta_batch_capf_2026index.html" data-title="X-Ray NDA">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="X-Ray NDA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">capf paper 1 paper 2 delta  batch</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-bullseye"></i>
+          NDA-1 2026 | Target-Focused
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">93%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">95+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+  </div>
+    <!-- Batch 8 -->
+    <a class="batch-card" href="/xray batch.html" data-title="X-Ray NDA">
+      <div class="card-glow"></div>
+      <div class="batch-header">
+        <img src="https://cds-journey-bucket.s3.amazonaws.com/media/course/afcat_CARD_new.webp" 
+             alt="X-Ray NDA" class="batch-thumbnail">
+        <div class="batch-overlay"></div>
+        <div class="batch-status status-live">
+          <i class="fas fa-circle"></i> LIVE
+        </div>
+      </div>
+      <div class="batch-content">
+        <h3 class="batch-title">X-Ray NDA</h3>
+        <div class="batch-subtitle">
+          <i class="fas fa-bullseye"></i>
+          NDA-1 2026 | Target-Focused
+        </div>
+        <div class="batch-stats">
+          <div class="stat-item">
+            <div class="stat-value">93%</div>
+            <div class="stat-label">Accuracy</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">95+</div>
+            <div class="stat-label">Sessions</div>
+          </div>
+        </div>
+        <div class="batch-footer">
+          <span class="access-btn">
+            <i class="fas fa-play-circle"></i>
+            Access Content
+          </span>
+          <div class="batch-price">PREMIUM</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== TELEGRAM CTA ===== -->
+<section class="telegram-cta">
+  <div class="telegram-card">
+    <div class="telegram-icon">
+      <i class="fab fa-telegram"></i>
+    </div>
+    <h3 class="telegram-title">Join Quantum Community</h3>
+    <p class="telegram-text">
+      Get instant updates, live discussions, exclusive content, and connect with 
+      fellow aspirants in our premium Telegram community.
+    </p>
+    <a href="https://t.me/+roQAmujl1TRjMjE1" target="_blank" class="telegram-btn">
+      <i class="fab fa-telegram-plane"></i>
+      Join Official Channel
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="quantum-footer" id="contact">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">MADXRAJ</div>
+    </div>
+    <div class="footer-info">
+      <p>© 2024 MADXRAJ Quantum Learning Platform. All rights reserved.</p>
+      <p class="footer-contact">
+        Contact: <a href="mailto:support@madxraj.com">support@madxraj.com</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+</div> <!-- End of mainContent -->
+
+<script src="script.js">
+
+</script>
 </body>
 </html>
